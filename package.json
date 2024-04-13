@@ -4,8 +4,7 @@
   "description": "TypeScript OOP Cart Reborn Project - Week 8 ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./src/index.ts"
+    "start": "tsc && node ./dist/index.js"
   },
   "author": "Lexie Young",
   "license": "ISC",
@@ -14,6 +13,7 @@
   },
   "dependencies": {
     "@types/uuid": "^9.0.8",
+    "live-server": "^1.2.2",
     "uuid": "^9.0.1"
   }
 }

@@ -76,12 +76,12 @@ class Shop {
     
 
 // cartTotal    
-    function cartTotal(user:User):string {
+    function cartTotal(user:User):void {
         let total = 0; // total starts at zero, for each item in our cart, add that price to the total 
         for (let item of user.cart){
             total += item.price
         }
-        return `Your current total is ${total}`
+        console.log(`Your current total is ${total}`)
     }
 
     // printCart
@@ -110,7 +110,6 @@ const coffeeItems = [shopItem1, shopItem2, shopItem3, shopItem4, shopItem5, shop
 
 // Shop Initlization: 
 const myCoffeeShop = new Shop(coffeeItems)
-console.log(myCoffeeShop.shopItems)
 
 // Create User
 let userA = new User('Lexie', 27)
@@ -118,21 +117,24 @@ console.log(userA)
 
 // Add Items from shop
 addToCart(myCoffeeShop.shopItems[1], userA)
+console.log(myCoffeeShop.shopItems[1])
 addToCart(myCoffeeShop.shopItems[2], userA)
 addToCart(myCoffeeShop.shopItems[2], userA)
 addToCart(myCoffeeShop.shopItems[5], userA)
-addToCart(myCoffeeShop.shopItems[8], userA)
-
+addToCart(myCoffeeShop.shopItems[7], userA)
 
 // Print Cart
 printCart(userA)
+// WORKING THRu HERE
+
 
 // Remove all of one type of item
-removeFromCart(myCoffeeShop.shopItems[8], userA)
+removeFromCart(myCoffeeShop.shopItems[7], userA)
 
 // Remove only a few of an item
 
 removeQuantityFromCart(myCoffeeShop.shopItems[2], userA, 1)
+printCart(userA)
 
 // Read Total 
 cartTotal(userA)
