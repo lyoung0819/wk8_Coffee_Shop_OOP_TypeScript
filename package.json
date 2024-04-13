@@ -1,0 +1,19 @@
+{
+  "name": "lexiesshopreborn",
+  "version": "1.0.0",
+  "description": "TypeScript OOP Cart Reborn Project - Week 8 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./src/index.ts"
+  },
+  "author": "Lexie Young",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.8",
+    "uuid": "^9.0.1"
+  }
+}
