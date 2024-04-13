@@ -1,7 +1,5 @@
 //  !!! Don't forget to change start: back to dist/index.html !!! 
 import { v4 as uuidv4 } from 'uuid';
-let myuuid = uuidv4();
-
 
 
 //                                >>>>>> CLASSES: Item, User, Shop <<<<<<<
@@ -32,7 +30,7 @@ class User {
     public age: number;
     public cart: Item[];
 
-    public constructor(_id: string, name:string, age: number, cart: Item[]){
+    public constructor(name:string, age: number){
         this._id = uuidv4(),
         this.name = name,
         this.age = age,
@@ -45,27 +43,12 @@ class User {
     //no setter because we do not want the ID to be able to be modified
 }
 
-// Coffee Shop Item Objects:
-let shopItem1 = new Item (uuidv4(), 'Coffee', 4.00, 'Dark Roast black coffee with no modifications' )
-let shopItem2 = new Item (uuidv4(), 'Americano', 6.00, 'Diluted espresso mixed with hot water' )
-let shopItem3 = new Item (uuidv4(), 'Latte', 4.75, 'One shot of espresso blended with steamed milk and topped with foam' )
-let shopItem4 = new Item (uuidv4(), 'Cappuccino', 4.00, 'Espresso with steamed milk and a layer of milk foam' )
-let shopItem5 = new Item (uuidv4(), 'Cortado', 3.75, 'Espresso mixed with a roughly equal amount of warm milk ' )
-let shopItem6 = new Item (uuidv4(), 'Flat White', 4.00, 'Espresso with steamed milk, no foam' )
-let shopItem7 = new Item (uuidv4(), 'Vanilla Flavoring', .75, 'Extra flavoring available as add on' )
-let shopItem8 = new Item (uuidv4(), 'Carmel Flavoring', .75, 'Extra flavoring available as add on' )
-
-//Shop Items Arr:
-const coffeeItems = [shopItem1, shopItem2, shopItem3, shopItem4, shopItem5, shopItem6, shopItem7, shopItem8]
-
 class Shop { 
     public shopItems: Item[]
     public constructor(shopItems: Item[]){
-        this.shopItems = coffeeItems
+        this.shopItems = shopItems
     }
 }
-// Another way to build this within Shop Constructor?? COME BACK TO ME ******
-
 
 //                                             >>>>>> METHODS <<<<<<<
 
@@ -108,3 +91,48 @@ class Shop {
             console.log(item.name)
         }
     }
+
+// DRIVER CODE
+
+
+// Coffee Shop Item Objects:
+let shopItem1 = new Item (uuidv4(), 'Coffee', 4.00, 'Dark Roast black coffee with no modifications' )
+let shopItem2 = new Item (uuidv4(), 'Americano', 6.00, 'Diluted espresso mixed with hot water' )
+let shopItem3 = new Item (uuidv4(), 'Latte', 4.75, 'One shot of espresso blended with steamed milk and topped with foam' )
+let shopItem4 = new Item (uuidv4(), 'Cappuccino', 4.00, 'Espresso with steamed milk and a layer of milk foam' )
+let shopItem5 = new Item (uuidv4(), 'Cortado', 3.75, 'Espresso mixed with a roughly equal amount of warm milk ' )
+let shopItem6 = new Item (uuidv4(), 'Flat White', 4.00, 'Espresso with steamed milk, no foam' )
+let shopItem7 = new Item (uuidv4(), 'Vanilla Flavoring', .75, 'Extra flavoring available as add on' )
+let shopItem8 = new Item (uuidv4(), 'Carmel Flavoring', .75, 'Extra flavoring available as add on' )
+
+//Shop Items Arr:
+const coffeeItems = [shopItem1, shopItem2, shopItem3, shopItem4, shopItem5, shopItem6, shopItem7, shopItem8]
+
+// Shop Initlization: 
+const myCoffeeShop = new Shop(coffeeItems)
+console.log(myCoffeeShop.shopItems)
+
+// Create User
+let userA = new User('Lexie', 27)
+console.log(userA)
+
+// Add Items from shop
+addToCart(myCoffeeShop.shopItems[1], userA)
+addToCart(myCoffeeShop.shopItems[2], userA)
+addToCart(myCoffeeShop.shopItems[2], userA)
+addToCart(myCoffeeShop.shopItems[5], userA)
+addToCart(myCoffeeShop.shopItems[8], userA)
+
+
+// Print Cart
+printCart(userA)
+
+// Remove all of one type of item
+removeFromCart(myCoffeeShop.shopItems[8], userA)
+
+// Remove only a few of an item
+
+removeQuantityFromCart(myCoffeeShop.shopItems[2], userA, 1)
+
+// Read Total 
+cartTotal(userA)
