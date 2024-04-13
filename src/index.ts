@@ -58,17 +58,53 @@ let shopItem8 = new Item (uuidv4(), 'Carmel Flavoring', .75, 'Extra flavoring av
 //Shop Items Arr:
 const coffeeItems = [shopItem1, shopItem2, shopItem3, shopItem4, shopItem5, shopItem6, shopItem7, shopItem8]
 
-
 class Shop { 
-    public name: string;
     public shopItems: Item[]
-
-    public constructor(name:string, shopItems: Item[]){
-        this.name = name,
+    public constructor(shopItems: Item[]){
         this.shopItems = coffeeItems
     }
 }
-
+// Another way to build this within Shop Constructor?? COME BACK TO ME ******
 
 
 //                                             >>>>>> METHODS <<<<<<<
+
+
+// addToCart   
+    function addToCart(item:Item, user:User):void {
+        user.cart.push(item)
+        console.log(`You have added ${item.name} to your cart!`)
+     }
+
+// removeFromCart    
+    function removeFromCart(item:Item, user:User):void {
+        user.cart = user.cart.filter( cartItem => cartItem.itemId !== item.itemId ) 
+        console.log(`All of your ${item.name}s have been deleted from your cart.`)
+    }
+
+// removeQuantityFromCart   
+    function removeQuantityFromCart(item:Item, user:User, quantity:number):void {
+        for (let idx=0; idx < quantity; idx++){
+            let indexOfItem = user.cart.findIndex( createItem => createItem.itemId == item.itemId )
+            user.cart.splice(indexOfItem, 1)
+        }
+        console.log(`You have removed ${quantity} ${item.name}(s) from your cart.`)
+    }
+    
+
+// cartTotal    
+    function cartTotal(user:User):string {
+        let total = 0; // total starts at zero, for each item in our cart, add that price to the total 
+        for (let item of user.cart){
+            total += item.price
+        }
+        return `Your current total is ${total}`
+    }
+
+    // printCart
+    function printCart(user:User):void {
+        console.log('Your cart:')
+        for (let item of user.cart){
+            console.log(item.name)
+        }
+    }
