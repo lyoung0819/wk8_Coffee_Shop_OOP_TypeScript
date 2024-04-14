@@ -1,4 +1,8 @@
 "use strict";
+/*
+                            ***** Homework Complete Up Until: TypeScript OOP Cart Reborn ******
+                            --------------------------------------------------------------------
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
 //                                >>>>>> CLASSES: Item, User, Shop <<<<<<<
@@ -63,7 +67,7 @@ function printCart(user) {
         console.log(item.name);
     }
 }
-//                                              >>>>>> DRIVER CODE <<<<<<<<
+// DRIVER CODE
 // Coffee Shop Item Objects:
 let shopItem1 = new Item((0, uuid_1.v4)(), 'Coffee', 4.00, 'Dark Roast black coffee with no modifications');
 let shopItem2 = new Item((0, uuid_1.v4)(), 'Americano', 6.00, 'Diluted espresso mixed with hot water');
