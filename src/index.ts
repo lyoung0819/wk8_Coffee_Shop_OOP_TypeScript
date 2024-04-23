@@ -1,4 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Canvas } from './Widget';
+
+
+const canvas = new Canvas(document.body)
+console.log(canvas)
 
 
 //                                >>>>>> CLASSES: Item, User, Shop <<<<<<<
