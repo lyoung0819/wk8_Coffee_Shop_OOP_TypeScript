@@ -15,7 +15,17 @@ class RightLeaningContainer extends Container {
     }
 }
 
+class CircleContainer extends Container {
+    constructor(){
+        super()
+        this.borderRadius = '50%'
+    }
+}
+
+
+
 export {
     LeftLeaningContainer,
-    RightLeaningContainer
+    RightLeaningContainer,
+    CircleContainer
 }

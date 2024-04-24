@@ -10,3 +10,6 @@ export interface Containerable {
     attributes: Partial<Containerable>
 }
 
+export type State = {
+    [key:string]: string
+}

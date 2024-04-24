@@ -1,9 +1,40 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Canvas } from './Widget';
+import { Canvas, CircleContainer, Component } from './Widget';
+import { RightLeaningContainer } from './Widget';
 
 
 const canvas = new Canvas(document.body)
+canvas.state = {action: 'is awesome', firstName: 'Lexie', city: 'St. Louis'}
 console.log(canvas)
+
+const firstComponent = new Component();
+console.log(firstComponent);
+console.log(firstComponent.shape);
+console.log(firstComponent.shape.attributes);
+
+// Change styling of component
+firstComponent.shape = new CircleContainer
+firstComponent.heigth = 4
+firstComponent.width = 4
+firstComponent.locationLeft = 3
+firstComponent.shape.backgroundColor = 'red'
+firstComponent.shape.borderStyle = 'dashed';
+firstComponent.shape.borderWidth = '5px';
+// Adding component
+canvas.addComponent(firstComponent);
+
+const secondComponent = new Component();
+secondComponent.shape = new RightLeaningContainer
+secondComponent.locationLeft = 4;
+secondComponent.locationTop = 2;
+secondComponent.shape.zIndex = 1;
+secondComponent.content = '<h3>Typescript {{ action }}</h3>'
+canvas.addComponent(secondComponent);
+
+
+
+
+
 
 
 //                                >>>>>> CLASSES: Item, User, Shop <<<<<<<
@@ -95,6 +126,14 @@ class Shop {
             console.log(item.name)
         }
     }
+
+    // document   
+    //     .getElementById("loginbutton")!
+    //     .addEventListener("click", (e: Event) => Shop.loginUser(e))
+
+
+
+
 
 // DRIVER CODE
 
